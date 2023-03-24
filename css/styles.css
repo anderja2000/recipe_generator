@@ -1,0 +1,120 @@
+header {
+    height: 200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.mouse {
+    float: right;
+    border-radius: 38%;
+    height: 200px;
+    margin-right: 200px;
+}
+
+
+header h1 {
+    font-family: 'Inter', sans-serif;
+    font-size: 30px;
+    padding: 40px;
+}
+
+.container {
+    background-color: palevioletred;
+    padding: 50px;
+    position: scroll;
+    width: 600px;
+    height: auto;
+    display: flex;
+    left: 0;
+    top: 0;
+    flex-direction: column;
+
+    border-radius: 30px;
+
+}
+
+.container section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container img {
+    height: 400px;
+    width: 400px;
+    padding: 20px;
+
+}
+
+body {
+    background-attachment: fixed;
+    background-color: #db93b0ff;
+    background-image: url("../images/wallpaper.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* styles for the scroll bar  */
+
+.scroll {
+    border: none;
+    padding: 5px;
+    font: 20px/27px sans-serif;
+    width: 670px;
+    height: 1000px;
+    overflow: scroll;
+}
+
+::-webkit-scrollbar {
+    width: 20px;
+    height: 12px;
+}
+
+::-webkit-scrollbar-track {
+    border: 1px solid rgb(172, 22, 99);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(53, 50, 205);
+    border-radius: 30px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #88ba1c;
+}
+
+/* .opacity { 
+    opacity: 0.6;
+} */
+/* --amaranth-pink: #db93b0ff;
+--carmine: #970011ff;
+--candy-apple-red: #fd2813ff;
+--barn-red: #770303ff;
+--dutch-white: #fcecc9ff; */
+
+.choices {
+    margin: 3px;
+    display: inline-block;
+    
+    padding: 0;
+    width: 60px;
+    height: 60px;    
+    line-height: 60px;
+    
+    font-size: 12px;
+    font-weight: lighter !important;
+    color: #fff !important;
+    text-align: center;
+    
+    vertical-align: baseline;
+    background-color: #d73d33;
+    border-radius:50px;
+    position: relative
+   
+}
+
+section { 
+    width: 100%;
+}
