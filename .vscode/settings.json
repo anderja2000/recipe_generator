@@ -1,0 +1,30 @@
+{
+    "liveServer.settings.port": 5501
+} // {    
+//     "editor.tokenColorCustomizations":  {
+//         "[Visual Studio Dark]": {
+//             "comments": "#226799";
+//         }
+//     }
+
+//     "workbench.colorCustomizations" : {
+//         "[Visual Studio Dark]": { 
+//             "editor.background": "#eefefe",
+//             "editor.foreground" = "#000",
+//         }
+//     }
+
+//     "editor.tokenColorCustomizations": {
+//         "textMateRules": [
+//             {
+//                 "scope": [
+//                     "variable",
+//                 ],
+//                 "settings": {
+//                     "foreground": "#000";
+//                 },
+//             },
+//         ],
+//     },
+// }
+

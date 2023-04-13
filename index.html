@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>recipe generator</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <!-- script tag for font awesome -->
+    <script src="https://kit.fontawesome.com/e8756853c9.js" crossorigin="anonymous"></script>
+
+    <!-- Jquery script -->
+    <script src="https://code.jquery.com/jquery-3.6.4.js"
+        integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Alkalami&family=Alkatra&family=Anton&family=Aref+Ruqaa+Ink:wght@700&family=Blaka+Ink&family=Cantora+One&family=Fira+Sans:wght@200;400&family=Forum&family=Lobster&family=Merriweather+Sans&family=Montserrat:ital,wght@0,700;1,800&family=Oleo+Script&family=Oleo+Script+Swash+Caps&family=PT+Sans&family=Pacifico&family=Quicksand:wght@700&family=Raleway&family=Roboto:ital,wght@0,100;0,300;1,400&family=Rubik:wght@300&family=Sacramento&family=Tilt+Warp&family=Ubuntu:wght@300&family=Water+Brush&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Alkalami&family=Alkatra&family=Anton&family=Aref+Ruqaa+Ink:wght@700&family=Blaka+Ink&family=Cantora+One&family=Fira+Sans:wght@200;400&family=Forum&family=Lobster&family=Merriweather+Sans&family=Montserrat:ital,wght@0,700;1,800&family=Oleo+Script&family=Oleo+Script+Swash+Caps&family=PT+Sans&family=Pacifico&family=Quicksand:wght@700&family=Raleway&family=Roboto:ital,wght@0,100;0,300;1,400&family=Rubik:wght@300&family=Sacramento&family=Tilt+Warp&family=Ubuntu:wght@300&family=Water+Brush&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Alkalami&family=Alkatra&family=Anton&family=Aref+Ruqaa+Ink:wght@700&family=Blaka+Ink&family=Cantora+One&family=Fira+Sans:wght@200;400&family=Forum&family=Inter&family=Lobster&family=Merriweather+Sans&family=Montserrat:ital,wght@0,700;1,800&family=Oleo+Script&family=Oleo+Script+Swash+Caps&family=PT+Sans&family=Pacifico&family=Quicksand:wght@700&family=Raleway&family=Roboto:ital,wght@0,100;0,300;1,400&family=Rubik:wght@300&family=Sacramento&family=Tilt+Warp&family=Ubuntu:wght@300&family=Water+Brush&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Alkalami&family=Alkatra&family=Anton&family=Aref+Ruqaa+Ink:wght@700&family=Blaka+Ink&family=Cantora+One&family=Fira+Sans:wght@200;400&family=Forum&family=Inter&family=Lobster&family=Merriweather+Sans&family=Montserrat:ital,wght@0,700;1,800&family=Oleo+Script&family=Oleo+Script+Swash+Caps&family=PT+Sans&family=Pacifico&family=Quicksand:wght@700&family=Raleway&family=Roboto:ital,wght@0,100;0,300;1,400&family=Rubik:wght@300&family=Sacramento&family=Tilt+Warp&family=Ubuntu:wght@300&family=Water+Brush&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Alkalami&family=Alkatra&family=Anton&family=Aref+Ruqaa+Ink:wght@700&family=Blaka+Ink&family=Cantora+One&family=Fira+Sans:wght@200;400&family=Forum&family=Inter&family=Lobster&family=Merriweather+Sans&family=Montserrat:ital,wght@0,700;1,800&family=Oleo+Script&family=Oleo+Script+Swash+Caps&family=PT+Sans&family=Pacifico&family=Quicksand:wght@700&family=Raleway&family=Roboto:ital,wght@0,100;0,300;1,400&family=Rubik:wght@300&family=Sacramento&family=Tilt+Warp&family=Ubuntu:wght@300&family=Water+Brush&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+
+    <header>
+        <h1>Recipe Generator </h1>
+
+    </header>
+    <div class="pantry">
+        <center>
+            <h1>Pantry</h1>
+            <h2 id="cart"></h2>
+        </center>
+    </div>
+    <div class="scroll">
+        <div class="container">
+
+            <section>
+                <h1> vegetables</h1>
+                <img src="./images/vegetable.jpeg" alt="">
+
+                <div class="line"></div>
+
+                <div id="vegetableOptions"></div>
+
+                <button class="allOptions buttonClicked">All Options</button>
+
+
+            </section>
+            <section>
+
+                <h1>Fruits</h1>
+                <img src="./images/fruit.jpg" alt="">
+
+                <div class="line"></div>
+                <!-- 
+                    code generated in my javascript file that creates a table of clickable buttons  -->
+
+                <div id="fruitOptions"></div>
+                <button class="allOptions buttonClicked">All Options</button>
+
+
+            </section>
+            <section>
+                <h1>Dairy & Eggs</h1>
+                <img src="./images/dairy.jpg" alt="">
+
+                <div class="line"></div>
+
+                <div id="dairyEggsOptions"></div>
+                <button class="allOptions buttonClicked">All Options</button>
+
+
+            </section>
+
+            <section>
+                <h1>Cheeses</h1>
+                <img src="./images/cheeses.jpg" alt="">
+
+                <div class="line"></div>
+
+                <div id="cheesesOptions"></div>
+                <button class="allOptions buttonClicked">All Options</button>
+
+
+            </section>
+
+            <section>
+                <h1>Meats</h1>
+                <img src="./images/meats.jpeg" alt="">
+
+                <div class="line"></div>
+
+                <div id="meatsOptions"></div>
+                <button class="allOptions buttonClicked">All Options</button>
+
+
+            </section>
+            <center>
+                <button id="resetBtn">Reset choices</button>
+            </center>
+        </div>
+
+
+    </div>
+
+
+
+
+    <script>
+
+    </script>
+    <script src="./js/jQuery-3.6.4.js"></script>
+
+    <script src="./js/generator.js"></script>
+
+
+</body>
+
+</html>

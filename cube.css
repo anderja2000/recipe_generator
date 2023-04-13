@@ -1,0 +1,17 @@
+.cube { 
+    height: 300px;
+    width: 300px;
+
+}
+
+#cubeRed { 
+    background-color: red;
+}
+
+#cubeBlue { 
+    background-color: blue;
+}
+
+#cubeYellow { 
+    background-color: yellow;
+}
