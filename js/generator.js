@@ -3,10 +3,33 @@ let cartString = "";
 const cart = document.getElementById("cart");
 cart.innerHTML = "you added " + String(counter) + " ingredients!";
 
+let foodArray = ["tomatoes", "lettuce", "carrots", "spinach", "cabbage", "potato", "onion", "spinach",
+    "broccoli", "peas", "celery", "eggplant", "cucumber", "cauliflower", "zuccini"];
+let foodArray2 = ["lemon", "apple", "lime", "orange", "bananna", "peach", "grape", "kiwi",
+    "grapefruit", "pear", "mango", "nectarine", "cuconut", "cantelope", "honeydew"];
+let foodArray3 = ["butter", "eggs", "milk", "heavy cream", "sour cream", "yogurt", "chocolate milk", "ice cream",
+    "ricotta", "margaine", "frosting", "buttermilk", "cottage cheese", "greek yogurt", "cream"];
+
+let foodArray4 = ["parmesan", "sharp cheddar", "mozzarella", "provolone", "american", "gouda", "swiss cheese", " asiago",
+    "smoked", "babybel", "brie", "colby", "pepperjack", "Feta", "Havarti"];
+
+let foodArray5 = ["bacon", "pork loin", "italian sausage", "pork chops", "salami", "ham", "lamb", "bolgna",
+    "ground beef", "steak", "roast beef", "sausage", "turkey sausage", "pork", "lamb chops"];
+
+let vegetablesChosen = []; 
+let fruitsChosen = []; 
+let dairyChosen = []; 
+let cheesesChosen = []; 
+let meatsChosen = [];
+
+
+let addedToPantry = [];
+
+
 function createTable() {
 
-    let foodArray = ["tomatoes", "lettuce", "carrots", "spinach", "cabbage", "potato", "onion", "spinach",
-        "broccoli", "peas", "celery", "eggplant", "cucumber", "cauliflower", "zuccini"];
+    // let foodArray = ["tomatoes", "lettuce", "carrots", "spinach", "cabbage", "potato", "onion", "spinach",
+    //     "broccoli", "peas", "celery", "eggplant", "cucumber", "cauliflower", "zuccini"];
 
     let num = foodArray.length;
 
@@ -30,6 +53,13 @@ function createTable() {
             // set inner Html 
             newCell.innerHTML = foodArray[j];
 
+            // this is the ongoing pantry array that keeps track of the ite
+
+            newCell.addEventListener("click", () => {
+                vegetablesChosen.push(newCell.innerHTML);
+
+            });
+
             // set the classname 
             newCell.className = "choices";
 
@@ -51,8 +81,8 @@ function createTable() {
 
     // creates the interactive options for selections available for fruits 
 
-    let foodArray2 = ["lemon", "apple", "lime", "orange", "bananna", "peach", "grape", "kiwi",
-        "grapefruit", "pear", "mango", "nectarine", "cuconut", "cantelope", "honeydew"];
+    // let foodArray2 = ["lemon", "apple", "lime", "orange", "bananna", "peach", "grape", "kiwi",
+    //     "grapefruit", "pear", "mango", "nectarine", "cuconut", "cantelope", "honeydew"];
 
     let num2 = foodArray2.length;
 
@@ -76,6 +106,13 @@ function createTable() {
             // set inner Html 
             newCell2.innerHTML = foodArray2[j];
 
+            // this is the ongoing pantry array that keeps track of the ite
+
+            newCell2.addEventListener("click", () => {
+                fruitsChosen.push(newCell2.innerHTML);
+
+            })
+
             // set the classname 
             newCell2.className = "choices";
 
@@ -97,8 +134,8 @@ function createTable() {
 
     // creates interactive options available to users selcting dairy and eggs products 
 
-    let foodArray3 = ["butter", "eggs", "milk", "heavy cream", "sour cream", "yogurt", "chocolate milk", "ice cream",
-        "ricotta", "margaine", "frosting", "buttermilk", "cottage cheese", "greek yogurt", "cream"];
+    // let foodArray3 = ["butter", "eggs", "milk", "heavy cream", "sour cream", "yogurt", "chocolate milk", "ice cream",
+    //     "ricotta", "margaine", "frosting", "buttermilk", "cottage cheese", "greek yogurt", "cream"];
 
     let num3 = foodArray2.length;
 
@@ -122,6 +159,11 @@ function createTable() {
             // set inner Html 
             newCell3.innerHTML = foodArray3[j];
 
+            newCell3.addEventListener("click", () => {
+                dairyChosen.push(newCell3.innerHTML);
+
+            })
+
             // set the classname 
             newCell3.className = "choices";
 
@@ -143,8 +185,8 @@ function createTable() {
 
     // creates cheese options 
 
-    let foodArray4 = ["parmesan", "sharp cheddar", "mozzarella", "provolone", "american", "gouda", "swiss cheese", " asiago",
-        "smoked", "babybel", "brie", "colby", "pepperjack", "Feta", "Havarti"];
+    // let foodArray4 = ["parmesan", "sharp cheddar", "mozzarella", "provolone", "american", "gouda", "swiss cheese", " asiago",
+    //     "smoked", "babybel", "brie", "colby", "pepperjack", "Feta", "Havarti"];
 
     let num4 = foodArray4.length;
 
@@ -168,6 +210,11 @@ function createTable() {
             // set inner Html 
             newCell4.innerHTML = foodArray4[j];
 
+            newCell4.addEventListener("click", () => {
+                cheesesChosen.push(newCell4.innerHTML);
+
+            })
+
             // set the classname 
             newCell4.className = "choices";
 
@@ -189,8 +236,8 @@ function createTable() {
 
     // the meat options 
 
-    let foodArray5 = ["bacon", "pork loin", "italian sausage", "pork chops", "salami", "ham", "lamb", "bolgna",
-        "ground beef", "steak", "roast beef", "sausage", "turkey sausage", "pork", "lamb chops"];
+    // let foodArray5 = ["bacon", "pork loin", "italian sausage", "pork chops", "salami", "ham", "lamb", "bolgna",
+    //     "ground beef", "steak", "roast beef", "sausage", "turkey sausage", "pork", "lamb chops"];
 
     let num5 = foodArray4.length;
 
@@ -213,6 +260,11 @@ function createTable() {
             // what should cell say?
             // set inner Html 
             newCell5.innerHTML = foodArray5[j];
+
+            newCell5.addEventListener("click", () => {
+                meatsChosen.push(newCell5.innerHTML);
+
+            })
 
             // set the classname 
             newCell5.className = "choices";
@@ -327,7 +379,7 @@ function createTable() {
                 cart.innerHTML = "You have " + String(counter) + " ingredients added!";
             });
         });
-                
+
 
 
     });
@@ -335,6 +387,78 @@ function createTable() {
 
 
     // increment counter and add to the header 
+
+
+}
+console.log(addedToPantry);
+
+
+
+function consolidateArrays(ingredients1, ingredients2, ingredients3, ingredients4, ingredients5) {
+    let pantryArray = [];
+    pantryArray = pantryArray.concat(ingredients1, ingredients2, ingredients3, ingredients4, ingredients5)
+
+    return pantryArray;
+}
+
+function recipeSearch() {
+    
+
+    // // Fetch recipes by ingredients from Spoonacular API
+
+    // Replace with your own API key
+    const API_KEY = '48db75c1229848028d55cf2962ff68b0';
+    
+    let gathered = [];
+    
+    
+    // List of ingredie nts to search for
+    document.getElementById("submit").addEventListener("click", () => { 
+        gathered.push(consolidateArrays(vegetablesChosen, fruitsChosen, dairyChosen, cheesesChosen, meatsChosen));
+        
+    });
+    console.log(gathered)
+
+    // Number of results to fetch
+    const numResults = 5;
+
+    // Function to fetch recipes from Spoonacular API
+    async function fetchRecipes() {
+        try {
+            i
+            // Make GET request to the Spoonacular API
+            const response = await fetch(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=${API_KEY}&ingredients=${gathered.join(',')}&number=${numResults}`);
+
+            // Parse the JSON response
+            const data = await response.json();
+            console.log(data);
+            
+            data.forEach( (entry) => { 
+                console.log(entry.title)
+            });
+
+            // Extract the recipe data from the response
+            const recipes = data;
+            for ( const [key, value] of data.entries()) { 
+              
+            }
+
+            // Do something with the recipes, e.g. display them on the page
+            
+        } catch (error) {
+            console.error(error);
+        }
+    }
+    
+
+    // Function to fetch new recipes and call it whenever needed
+    function fetchNewRecipes() {
+        fetchRecipes();
+    }
+
+    // Call the fetchNewRecipes function initially when the page is loaded
+    window.addEventListener('load', fetchNewRecipes);
+
 
 
 }
@@ -349,6 +473,9 @@ function createTable() {
 function init() {
     // createOptions(); 
     createTable();
+    recipeSearch();
+
+
 }
 
 init();     
