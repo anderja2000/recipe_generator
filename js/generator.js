@@ -539,55 +539,224 @@ document.getElementById("submit").addEventListener("click", () => {
     gathered.push(consolidateArrays(vegetablesChosen, fruitsChosen, dairyChosen, cheesesChosen, meatsChosen));
     console.log(gathered);
 
-    function recipeSearch(ingredients, apiKey) {
-        // Function to fetch recipes from Spoonacular API
-        function fetchRecipes(ingredients, apiKey) {
-            const endpoint = "https://api.spoonacular.com/recipes/findByIngredients";
-            const params = {
-                apiKey: apiKey,
-                ingredients: ingredients.join(","),
-                number: 5 // Change this to the number of recipes you want to retrieve
-            };
-            return fetch(endpoint + "?" + new URLSearchParams(params))
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error("Failed to fetch recipes. Status code: " + response.status);
+    // function recipeSearch(ingredients, apiKey) {
+    //     // Function to fetch recipes from Spoonacular API
+    //     function fetchRecipes(ingredients, apiKey) {
+    //         const endpoint = "https://api.spoonacular.com/recipes/findByIngredients";
+    //         const params = {
+    //             apiKey: apiKey,
+    //             ingredients: ingredients.join(","),
+    //             number: 5 // Change this to the number of recipes you want to retrieve
+    //         };
+    //         return fetch(endpoint + "?" + new URLSearchParams(params))
+    //             .then(response => {
+    //                 if (!response.ok) {
+    //                     throw new Error("Failed to fetch recipes. Status code: " + response.status);
+    //                 }
+    //                 return response.json();
+    //             })
+    //             .catch(error => {
+    //                 console.log(error);
+    //                 return null;
+    //             });
+    //     }
+
+    //     // Function to fetch recipe information using recipe ID
+    //     function fetchRecipeInformation(id, apiKey) {
+    //         const endpoint = `https://api.spoonacular.com/recipes/${id}/information`;
+    //         const params = {
+    //             apiKey: apiKey
+    //         };
+    //         return fetch(endpoint + "?" + new URLSearchParams(params))
+    //             .then(response => {
+    //                 if (!response.ok) {
+    //                     throw new Error("Failed to fetch recipe information. Status code: " + response.status);
+    //                 }
+    //                 return response.json();
+    //             })
+    //             .catch(error => {
+    //                 console.log(error);
+    //                 return null;
+    //             });
+    //     }
+
+    //     // Function to analyze recipe using recipe title
+    //     function analyzeRecipe(title, apiKey) {
+    //         const endpoint = "https://api.spoonacular.com/recipes/analyze";
+    //         const params = {
+    //             apiKey: apiKey,
+    //             title: title
+    //         };
+    //         return fetch(endpoint + "?" + new URLSearchParams(params))
+    //             .then(response => {
+    //                 if (!response.ok) {
+    //                     throw new Error("Failed to analyze recipe. Status code: " + response.status);
+    //                 }
+    //                 return response.json();
+    //             })
+    //             .catch(error => {
+    //                 console.log(error);
+    //                 return null;
+    //             });
+    //     }
+
+    //     // Call fetchRecipes function to fetch recipes from Spoonacular API
+    //     fetchRecipes(ingredients, apiKey)
+    //         .then(recipes => {
+    //             if (recipes && Array.isArray(recipes)) {
+    //                 if (recipes.length === 0) {
+    //                     console.log("No recipes found");
+    //                 } else {
+    //                     console.log("Recipes found:");
+    //                     recipes.forEach(recipe => {
+    //                         console.log("- Recipe ID:", recipe.id);
+    //                         console.log("  Recipe Title:", recipe.title);
+    //                         const recipeTitle = document.querySelectorAll(".recipeTitle");
+    //                         recipeTitle.innerHTML = recipe.title; 
+
+    //                         console.log("  Recipe Image:", recipe.image);
+    //                         const images = document.querySelectorAll(".image1"); 
+    //                         images.src = recipe.image; 
+    //                         document.body.append(images);
+
+    //                         // Call fetchRecipeInformation function to fetch recipe information
+    //                         fetchRecipeInformation(recipe.id, apiKey)
+    //                             .then(recipeInfo => {
+    //                                 console.log(`Recipe Source: ${recipeInfo.sourceUrl}`);
+    //                             });
+
+    //                         // Call analyzeRecipe function to analyze recipe using title
+    //                         analyzeRecipe(recipe.title, apiKey)
+    //                             .then(recipeAnalysis => {
+    //                                 console.log("Recipe Analysis:", recipeAnalysis);
+    //                             });
+    //                     });
+    //                 }
+    //             } else {
+    //                 console.log("Failed to fetch recipes");
+    //             }
+    //         });
+
+    // }
+
+    document.getElementById("submit").addEventListener("click", () => {
+
+        // pushes all of the individual section arrays into one consolidated for easier access when retrieving ingredients 
+        gathered.push(consolidateArrays(vegetablesChosen, fruitsChosen, dairyChosen, cheesesChosen, meatsChosen));
+        console.log(gathered);
+
+        function recipeSearch(ingredients, apiKey) {
+            // Function to fetch recipes from Spoonacular API
+            function fetchRecipes(ingredients, apiKey) {
+                const endpoint = "https://api.spoonacular.com/recipes/findByIngredients";
+                const params = {
+                    apiKey: apiKey,
+                    ingredients: ingredients.join(","),
+                    number: 4 // Change this to the number of recipes you want to retrieve
+                };
+                return fetch(endpoint + "?" + new URLSearchParams(params))
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error("Failed to fetch recipes. Status code: " + response.status);
+                        }
+                        return response.json();
+                    })
+                    .catch(error => {
+                        console.log(error);
+                        return null;
+                    });
+            }
+
+            // Function to fetch recipe information using recipe ID
+            function fetchRecipeInformation(id, apiKey) {
+                const endpoint = `https://api.spoonacular.com/recipes/${id}/information`;
+                const params = {
+                    apiKey: apiKey
+                };
+                return fetch(endpoint + "?" + new URLSearchParams(params))
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error("Failed to fetch recipe information. Status code: " + response.status);
+                        }
+                        return response.json();
+                    })
+                    .catch(error => {
+                        console.log(error);
+                        return null;
+                    });
+            }
+
+            // Function to analyze recipe using recipe title
+            function analyzeRecipe(title, apiKey) {
+                const endpoint = "https://api.spoonacular.com/recipes/analyze";
+                const params = {
+                    apiKey: apiKey,
+                    title: title
+                };
+                return fetch(endpoint + "?" + new URLSearchParams(params))
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error("Failed to analyze recipe. Status code: " + response.status);
+                        }
+                        return response.json();
+                    })
+                    .catch(error => {
+                        console.log(error);
+                        return null;
+                    });
+            }
+
+            // Call fetchRecipes function to fetch recipes from Spoonacular API
+            fetchRecipes(ingredients, apiKey)
+                .then(recipes => {
+                    if (recipes && Array.isArray(recipes)) {
+                        if (recipes.length === 0) {
+                            console.log("No recipes found");
+                        } else {
+                            console.log("Recipes found:");
+                            recipes.forEach((recipe, index) => { // Add index parameter to get the current iteration index
+                                console.log("- Recipe ID:", recipe.id);
+                                console.log("  Recipe Title:", recipe.title);
+
+                                // Update recipe titles using IDs and index
+                                const titleId = `recipeTitle${index + 1}`; // Add 1 to index to match with 1-based ID
+                                const titleElement = document.getElementById(titleId);
+                                titleElement.innerHTML = recipe.title;
+
+                                // Update recipe images using IDs and index
+                                const imageId = `image${index + 1}`; // Add 1 to index to match with 1-based ID
+                                const imageElement = document.getElementById(imageId);
+                                imageElement.src = recipe.image;
+
+
+                                // Call fetchRecipeInformation function to fetch recipe information
+                                fetchRecipeInformation(recipe.id, apiKey)
+                                    .then(recipeInfo => {
+                                        console.log(`Recipe Source: ${recipeInfo.sourceUrl}`);
+                                    });
+
+                                // Call analyzeRecipe function to analyze recipe using title
+                                analyzeRecipe(recipe.title, apiKey)
+                                    .then(recipeAnalysis => {
+                                        console.log("Recipe Analysis:", recipeAnalysis);
+                                    });
+                            });
+                        }
+                    } else {
+                        console.log("Failed to fetch recipes");
                     }
-                    return response.json();
-                })
-                .catch(error => {
-                    console.log(error);
-                    return null;
                 });
         }
 
-        // Call fetchRecipes function to fetch recipes from Spoonacular API
-        fetchRecipes(ingredients, apiKey)
-            .then(recipes => {
-                if (recipes && Array.isArray(recipes)) {
-                    if (recipes.length === 0) {
-                        console.log("No recipes found");
-                    } else {
-                        console.log("Recipes found:");
-                        recipes.forEach(recipe => {
-                            console.log("- Recipe ID:", recipe.id);
-                            console.log("  Recipe Title:", recipe.title);
-                            console.log("  Recipe Image:", recipe.image);
-                        });
-                    }
-                } else {
-                    console.log("Failed to fetch recipes");
-                }
-            });
-    }
-    ingredients.push(gathered);
-    console.log(ingredients)
 
-    const apiKey = '48db75c1229848028d55cf2962ff68b0'; // Replace this with your actual Spoonacular API key
-    recipeSearch(ingredients, apiKey);
+        ingredients.push(gathered);
+        console.log(ingredients)
 
+        const apiKey = '48db75c1229848028d55cf2962ff68b0'; // Replace this with your actual Spoonacular API key
+        recipeSearch(ingredients, apiKey);
+
+    });
 });
-
 
 // // Fetch recipes by ingredients from Spoonacular API
 
@@ -610,4 +779,4 @@ function init() {
 
 }
 
-init();     
+init(); 

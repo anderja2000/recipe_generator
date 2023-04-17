@@ -37,7 +37,7 @@ header h1 {
     padding: 50px;
     position: scroll;
     width: 600px;
-    height: auto;
+    height: 100%;
     display: flex;
     left: 0;
     top: 0;
@@ -84,7 +84,7 @@ body {
     padding: 5px;
     font: 20px/27px sans-serif;
     width: 670px;
-    height: 1000px;
+    height: 100%;
     overflow: scroll;
 }
 
@@ -251,4 +251,24 @@ button {
     border-radius: 20px;
     height: 70px;
    
+}
+
+.recipes { 
+    position: absolute ;
+    
+    right: 120px;
+    top: 228px;
+    width:600px;
+    border-radius: 40px;
+    background-color: white;
+    height: 100%;
+   
+}
+
+.scroll2 { 
+    position: absolute ;
+    right: 200px;
+    top: 228px;
+    width:400px;
+    border-radius: 40px;
 }
