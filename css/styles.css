@@ -211,13 +211,16 @@ button {
 
 #resetBtn { 
     margin: 50px auto; 
-    width:200px; 
+    width:120px; 
     border-radius: 20px;
-    height: 70px;
-    background-color: green;
+    height: 40px;
+    background-color: orange;
 }
 
 #resetBtn:hover { 
+    width:200px; 
+    border-radius: 20px;
+    height: 70px;
     background-color:#E68F9D;
     color: orange;
 
@@ -236,7 +239,16 @@ button {
 }
 
 #submit { 
-    float: right; 
-    margin:  auto; 
+    margin: 50px auto; 
+    width:120px; 
+    border-radius: 20px;
+    height: 40px;
+    background-color: green;  
     
+}
+#submit:hover { 
+    width:200px; 
+    border-radius: 20px;
+    height: 70px;
+   
 }

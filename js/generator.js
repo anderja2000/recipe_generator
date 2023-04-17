@@ -16,11 +16,15 @@ let foodArray4 = ["parmesan", "sharp cheddar", "mozzarella", "provolone", "ameri
 let foodArray5 = ["bacon", "pork loin", "italian sausage", "pork chops", "salami", "ham", "lamb", "bolgna",
     "ground beef", "steak", "roast beef", "sausage", "turkey sausage", "pork", "lamb chops"];
 
+let foodArray6 = ["garlic powder", "lemon pepper", "cumin", "Chili powder", "oregano", "onion powder", "rosemary", "thyme", "Italian", "basil",
+    "black pepper", "curry powder", "tumeric", "parsely", "sea salt"]
+
 let vegetablesChosen = [];
 let fruitsChosen = [];
 let dairyChosen = [];
 let cheesesChosen = [];
 let meatsChosen = [];
+let spicesChosen = [];
 
 
 let addedToPantry = [];
@@ -58,6 +62,19 @@ function createTable() {
             newCell.addEventListener("click", () => {
                 vegetablesChosen.push(newCell.innerHTML);
 
+            });
+            // newCell = Array.from(newCell);
+
+            // // or
+
+            // // Convert newCell to an array using the spread operator
+            // newCell = [...newCell];
+
+            const allVegetables = document.getElementById("vegetables");
+            allVegetables.addEventListener("click", () => {
+                document.querySelectorAll("td").forEach((btn) => {
+                    vegetablesChosen.push(btn.innerHTML);
+                });
             });
 
             // set the classname 
@@ -111,7 +128,14 @@ function createTable() {
             newCell2.addEventListener("click", () => {
                 fruitsChosen.push(newCell2.innerHTML);
 
-            })
+            });
+
+            const allFruits = document.getElementById("fruits");
+            allFruits.addEventListener("click", () => {
+                document.querySelectorAll("td").forEach((btn) => {
+                    fruitsChosen.push(btn.innerHTML);
+                });
+            });
 
             // set the classname 
             newCell2.className = "choices";
@@ -162,7 +186,14 @@ function createTable() {
             newCell3.addEventListener("click", () => {
                 dairyChosen.push(newCell3.innerHTML);
 
-            })
+            });
+
+            const allDairy = document.getElementById("dairy");
+            allDairy.addEventListener("click", () => {
+                document.querySelectorAll("td").forEach((btn) => {
+                    dairyChosen.push(btn.innerHTML);
+                });
+            });
 
             // set the classname 
             newCell3.className = "choices";
@@ -215,6 +246,13 @@ function createTable() {
 
             })
 
+            const allCheeses = document.getElementById("cheeses");
+            allCheeses.addEventListener("click", () => {
+                document.querySelectorAll("td").forEach((btn) => {
+                    cheesesChosen.push(btn.innerHTML);
+                });
+            });
+
             // set the classname 
             newCell4.className = "choices";
 
@@ -265,6 +303,12 @@ function createTable() {
                 meatsChosen.push(newCell5.innerHTML);
 
             })
+            const allOptionsMeats = document.getElementById("meats");
+            allOptionsMeats.addEventListener("click", () => {
+                document.querySelectorAll("td").forEach((btn) => {
+                    meatsChosen.push(btn.innerHTML);
+                });
+            });
 
             // set the classname 
             newCell5.className = "choices";
@@ -286,7 +330,64 @@ function createTable() {
     document.getElementById("meatsOptions").append(newTable5);
 
 
-    // 
+    // creates interactive options available to users selcting dairy and eggs products 
+
+    // let foodArray3 = ["butter", "eggs", "milk", "heavy cream", "sour cream", "yogurt", "chocolate milk", "ice cream",
+    //     "ricotta", "margaine", "frosting", "buttermilk", "cottage cheese", "greek yogurt", "cream"];
+
+    let num6 = foodArray2.length;
+
+    const newTable6 = document.createElement("table");
+    if (num6 < 10) {
+        num6 = 10;
+    }
+    for (let i = 0; i < Math.floor(num6 / 10); ++i) {
+        // loops for correct number of rows 
+        // make a row 
+        const newRow6 = document.createElement("tr");
+
+
+        // within each row, what should happen?
+        // print out ten numbers 
+        for (let j = 0; j < foodArray6.length; ++j) {
+            // make the actual table cells 
+            const newCell6 = document.createElement("td");
+
+            // what should cell say?
+            // set inner Html 
+            newCell6.innerHTML = foodArray6[j];
+
+            newCell6.addEventListener("click", () => {
+                spicesChosen.push(newCell6.innerHTML);
+
+            });
+
+            const allSpices = document.getElementById("spices");
+            allSpices.addEventListener("click", () => {
+                document.querySelectorAll("td").forEach((btn) => {
+                    dairyChosen.push(btn.innerHTML);
+                });
+            });
+
+            // set the classname 
+            newCell6.className = "choices";
+
+
+
+            // add it to the row 
+            newRow6.append(newCell6);
+            // row += String((i*10) + j+1); 
+
+        }
+
+        // all cells are added to the row 
+        // add row to table 
+        newTable6.appendChild(newRow6);
+
+    }
+
+    document.getElementById("spiceOptions").append(newTable6);
+
     document.addEventListener("DOMContentLoaded", function () {
         // Get all buttons with class name "choices"
         const buttons = document.getElementsByClassName("choices");
@@ -348,7 +449,20 @@ function createTable() {
                 buttons[i].style.backgroundColor = "";
             }
             // Reset the counter to 0
+
+
             counter = 0;
+
+            vegetablesChosen = [];
+            fruitsChosen = [];
+            dairyChosen = [];
+            cheesesChosen = [];
+            meatsChosen = [];
+            spicesChosen = [];
+
+
+            addedToPantry = [];
+            gathered = [];
             // Set the updated counter value to the cart element
             cart.innerHTML = "You have " + String(counter) + " ingredients added!";
         });
@@ -407,8 +521,21 @@ function consolidateArrays(ingredients1, ingredients2, ingredients3, ingredients
 let ingredients = [];
 
 
-// List of ingredie nts to search for
+
+/* 
+
+                    BE WARY toucching this function 
+
+
+*/
+
+// List of ingredients to search for
+
+
+// listens for user click on submit button 
 document.getElementById("submit").addEventListener("click", () => {
+
+    // pushes all of the individual section arrays into one consolidated for easier access when retrieving ingredients 
     gathered.push(consolidateArrays(vegetablesChosen, fruitsChosen, dairyChosen, cheesesChosen, meatsChosen));
     console.log(gathered);
 
@@ -479,7 +606,7 @@ document.getElementById("submit").addEventListener("click", () => {
 function init() {
     // createOptions(); 
     createTable();
-  
+
 
 }
 
