@@ -13,7 +13,7 @@ let foodArray3 = ["butter", "eggs", "milk", "heavy cream", "sour cream", "yogurt
 let foodArray4 = ["parmesan", "sharp cheddar", "mozzarella", "provolone", "american", "gouda", "swiss cheese", " asiago",
     "smoked", "babybel", "brie", "colby", "pepperjack", "Feta", "Havarti"];
 
-let foodArray5 = ["bacon", "pork loin", "italian sausage", "pork chops", "salami", "ham", "lamb", "bolgna",
+let foodArray5 = ["bacon", "pork loin", "italian sausage", "pork chops", "salami", "ham", "lamb", "chicken",
     "ground beef", "steak", "roast beef", "sausage", "turkey sausage", "pork", "lamb chops"];
 
 let foodArray6 = ["garlic powder", "lemon pepper", "cumin", "Chili powder", "oregano", "onion powder", "rosemary", "thyme", "Italian", "basil",
@@ -428,7 +428,8 @@ function createTable() {
                 // Check if the button does not have the "active" class
                 if (!this.classList.contains("active")) {
                     // If it doesn't, set the background color to hover color
-                    this.style.backgroundColor = "orange";
+                    this.style.backgroundColor = "pink";
+                    
                 }
             });
 
@@ -463,8 +464,19 @@ function createTable() {
 
             addedToPantry = [];
             gathered = [];
+    
             // Set the updated counter value to the cart element
             cart.innerHTML = "You have " + String(counter) + " ingredients added!";
+
+            for (let i = 1; i <= 4; i++) {
+                const titleId = `recipeTitle${i}`;
+                const titleElement = document.getElementById(titleId);
+                titleElement.innerHTML = "";
+        
+                const imageId = `image${i}`;
+                const imageElement = document.getElementById(imageId);
+                imageElement.src = "";
+            }       
         });
         let allOptionsButtons = document.getElementsByClassName("allOptions");
 

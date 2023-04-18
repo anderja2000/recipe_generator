@@ -235,7 +235,7 @@ button {
 }
 .allOptions:hover { 
     background-color:#DB7093;
-    color: orange;
+    color: rgb(255, 131, 243);
 }
 
 #submit { 
@@ -254,6 +254,7 @@ button {
 }
 
 .recipes { 
+    margin-top: 4500px;
     position: absolute ;
     
     right: 120px;
@@ -261,7 +262,7 @@ button {
     width:600px;
     border-radius: 40px;
     background-color: white;
-    height: 100%;
+    height: auto;
    
 }
 
@@ -271,4 +272,7 @@ button {
     top: 228px;
     width:400px;
     border-radius: 40px;
+}
+.choices:hover { 
+    color: black
 }
