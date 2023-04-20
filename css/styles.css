@@ -1,7 +1,4 @@
 
-body{ 
-    position: relative;
-}
 header {
     height: 200px;
     margin: 0 auto;
@@ -69,12 +66,16 @@ header h1 {
 
 }
 
-body {
-    background-attachment: fixed;
+body {  
+  
+    position: relative;
+    background-attachment:fixed;
     background-color: #db93b0ff;
     background-image: url("../images/wallpaper.jpg");
     background-size: cover;
     background-repeat: no-repeat;
+    
+   
 }
 
 /* styles for the scroll bar  */
@@ -158,6 +159,29 @@ section {
     background-repeat: no-repeat;
 }
 .pantry h1 { 
+    text-shadow: 2px 2px #747170;
+    font-size: 3em;
+    font-family: 'Roboto', sans-serif;
+    padding-top: 10px 10px;
+    
+
+    color: rgb(208, 62, 62);
+}
+
+.pantryScroll { 
+    top: 220px; 
+    right: 100px;
+    position: fixed;
+    float: right; 
+    width: 670px;
+    border-radius: 40px;
+    background-image: url("../images/pantry.jpg");
+    background-size: cover;
+    height: 305px;
+    background-repeat: no-repeat;
+}
+
+.pantryScroll h1 { 
     text-shadow: 2px 2px #747170;
     font-size: 3em;
     font-family: 'Roboto', sans-serif;
