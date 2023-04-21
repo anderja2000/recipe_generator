@@ -704,6 +704,16 @@ document.getElementById("submit").addEventListener("click", () => {
                     }
                     const recipeInfo = await response.json();
                     console.log(`Recipe Source: ${recipeInfo.sourceUrl}`);
+                    const sources = document.querySelectorAll(".source"); 
+                    sources.forEach( (source) => { 
+                        source.innerHTML = recipeInfo.sourceUrl; 
+                    });
+
+                    const sourceLinks = document.querySelectorAll("a"); 
+                    sourceLinks.forEach( (link) => { 
+                        link.href = recipeInfo.source; 
+                    });
+                    
 
                     // Call recipeSearch function to show recipe information
                     const recipeData = {
